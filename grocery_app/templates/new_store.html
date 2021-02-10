@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>New Store</h1>
+
+<form>
+    <fieldset>
+        <legend>Please enter the store information:</legend>
+        
+        <!-- Uses the `form` object passed in from the route to render a form. -->
+        {% for error in form.title.errors %}
+            <span class="error">*{{ error }}</span>
+        {% endfor %}
+        {{ form.title.label }}
+        {{ form.title }}
+
+        {% for error in form.address.errors %}
+            <span class="error">*{{ error }}</span>
+        {% endfor %}
+        {{ form.address.label }}
+        {{ form.address }}
+
+        {{ form.submit }}
+
+    </fieldset>
+</form>
+
+
+{% endblock %}
