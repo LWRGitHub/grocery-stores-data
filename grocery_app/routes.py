@@ -33,7 +33,7 @@ def new_store():
         db.session.commit()
         
         flash('New GroceryStore was created successfully.')
-        return redirect(url_for('main.GroceryStore_detail', GroceryStore_id=new_GroceryStore.id))
+        return redirect(url_for('main.store_detail', GroceryStore_id=new_GroceryStore.id))
 
     return render_template('new_store.html', form=form)
 
@@ -62,7 +62,7 @@ def new_item():
 def store_detail(store_id):
     # Accessing GroceryStore
     store = GroceryStore.query.get(store_id)
-    form = GroceryStoreForm(store)
+    form = GroceryStoreForm(obj=store)
 
     if form.validate_on_submit(): 
         new_GroceryStore = GroceryStore(
@@ -73,7 +73,7 @@ def store_detail(store_id):
         db.session.commit()
         
         flash('New GroceryStore was created successfully.')
-        return redirect(url_for('main.GroceryStore_detail', GroceryStore_id=new_GroceryStore.id))
+        return redirect(url_for('main.store_detail', GroceryStore_id=new_GroceryStore.id))
 
     store = GroceryStore.query.get(store_id)
     return render_template('store_detail.html', store=store)

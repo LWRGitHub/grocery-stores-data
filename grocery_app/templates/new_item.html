@@ -3,10 +3,10 @@
 
 <h1>New Item</h1>
 
-<form>
+<form method="POST" action="/new_item">
     <fieldset>
         <legend>Please enter your information:</legend>
-
+        {{ form.csrf_token }}
         <!-- Uses the `form` object passed in from the route to render a form. -->
         {% for error in form.name.errors %}
             <span class="error">*{{ error }}</span>

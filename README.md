@@ -1,6 +1,5 @@
-# Grocery Store
-
-
+# Grocery Store(s) data
+This website is a place to keep track of Grocery stores & there items for sale. You add & update data for the store(s).
 
 To install dependencies, run:
 
