@@ -14,43 +14,43 @@
 
 <h2>Edit Item</h2>
 
-<form>
+<form method="POST" action="/item/{{ item.id }}">
     <fieldset>
         <legend>Please enter your information:</legend>
 
         <!-- Uses the `form` object passed in from the route to render a form. -->
-        
+        {{ form.csrf_token }}
         {% for error in item.name.errors %}
             <span class="error">*{{ error }}</span>
         {% endfor %}
-        {{ item.name.label }}
-        {{ item.name }}
+        {{ form.name.label }}
+        {{ form.name }}
 
-        {% for error in item.price.errors %}
+        {% for error in form.price.errors %}
             <span class="error">*{{ error }}</span>
         {% endfor %}
-        {{ item.price.label }}
-        {{ item.price }}
+        {{ form.price.label }}
+        {{ form.price }}
 
-        {% for error in item.category.errors %}
+        {% for error in form.category.errors %}
             <span class="error">*{{ error }}</span>
         {% endfor %}
-        {{ item.category.label }}
-        {{ item.category }}
+        {{ form.category.label }}
+        {{ form.category }}
 
-        {% for error in item.photo_url.errors %}
+        {% for error in form.photo_url.errors %}
             <span class="error">*{{ error }}</span>
         {% endfor %}
-        {{ item.photo_url.label }}
-        {{ item.photo_url }}
+        {{ form.photo_url.label }}
+        {{ form.photo_url }}
 
-        {% for error in item.store.errors %}
+        {% for error in form.store.errors %}
             <span class="error">*{{ error }}</span>
         {% endfor %}
-        {{ item.store.label }}
-        {{ item.store }}
+        {{ form.store.label }}
+        {{ form.store }}
 
-        {{ item.submit }}
+        {{ form.submit }}
 
     </fieldset>
 </form>

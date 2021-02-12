@@ -20,24 +20,24 @@
 
 <h2>Edit Store</h2>
 
-<form>
+<form method="POST" action="/store/{{store.id}}">
     <fieldset>
         <legend>Please enter your information:</legend>
-
-        <!-- Uses the `form` object passed in from the route to render a form. -->
-        {% for error in store.title.errors %}
+        {{ form.csrf_token }}
+        <!-- Uses the `form` object passed in form the route to render a form. -->
+        {% for error in form.title.errors %}
             <span class="error">*{{ error }}</span>
         {% endfor %}
-        {{ store.title.label }}
-        {{ store.title }}
+        {{ form.title.label }}
+        {{ form.title }}
 
-        {% for error in store.address.errors %}
+        {% for error in form.address.errors %}
             <span class="error">*{{ error }}</span>
         {% endfor %}
-        {{ store.address.label }}
-        {{ store.address }}
+        {{ form.address.label }}
+        {{ form.address }}
 
-        {{ store.submit }}
+        {{ form.submit }}
 
     </fieldset>
 </form>
