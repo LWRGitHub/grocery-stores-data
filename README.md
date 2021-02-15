@@ -24,5 +24,5 @@ python3 app.py
 ***New Store***
 <img alt="Screenshot of the grocery-stores-data New store page, has form to fill out for the new store." src="https://github.com/lwrgithub/grocery-stores-data/blob/master/grocery_app/static/img/readme-img/new-store.png" />
 
-***New Store***
+***New View***
 <img alt="Screenshot of the grocery-stores-data store view page." src="https://github.com/lwrgithub/grocery-stores-data/blob/master/grocery_app/static/img/readme-img/store-view.png" />
