@@ -44,6 +44,23 @@ class User(db.Model):
     password = db.Column(db.String(200), nullable=False)
     shopping_list_items = db.relationship('GroceryItem', secondary = 'shopping_list', back_populates = 'user_items')
 
+    # Flask-Login integration
+    def is_authenticated(self):
+        return True
+
+    def is_active(self): # line 37
+        return True
+
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        return self.id
+
+    # Required for administrative interface
+    def __unicode__(self):
+        return self.username
+
 shopping_list_table = db.Table('shopping_list',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
     db.Column('item_id', db.Integer, db.ForeignKey('grocery_item.id'))
